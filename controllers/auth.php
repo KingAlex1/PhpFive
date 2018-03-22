@@ -6,8 +6,8 @@ class Auth extends MainController
 {
     public function index()
     {
-        echo "auth";
-        // $regModel = new Authorization();
+
+        //$regModel = new Authorization();
 
         $this->view->render('authUsers', []);
 
