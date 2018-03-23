@@ -53,7 +53,7 @@
 <div class="container">
 
     <div class="form-container">
-        <form class="form-horizontal" action="../index.php" method="post">
+        <form enctype="multipart/form-data" class="form-horizontal" action="../index.php" method="post">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Логин</label>
                 <div class="col-sm-10">
@@ -116,7 +116,8 @@
             <div class="form-group">
                 <label for="inputPassword4" class="col-sm-2 control-label">Фото</label>
                 <div class="col-sm-10">
-                    <input type="file"
+                    <input
+                           type="file"
                            name="image"
                            class="form-control"
                            id="formImage"

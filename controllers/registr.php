@@ -1,19 +1,16 @@
 <?php
 
-
 namespace App;
 
 use core\DBConnector;
 use core\DBDriver;
 use models\registration;
 use core\Request;
-use core\Validation;
+use core\validation;
 
-
-class Registr {
-
+class Registr
+{
     public $request;
-
 
     public function __construct(Request $request)
     {
@@ -22,9 +19,9 @@ class Registr {
 
     public function addUser()
     {
-
-        $mPost = new Registration(new DBDriver(DBConnector::getConnect()), 'users');
-        $mPost->add([
+        $addOne = new Registration(new DBDriver(DBConnector::getConnect()), new Validation(), 'users');
+     //   var_dump($addOne);
+        $addOne->add([
             'login' => $this->request->post('login'),
             'password' => $this->request->post('password'),
             'name' => $this->request->post('name'),

@@ -6,6 +6,7 @@ require_once "core/View.php";
 
 use App\Registr;
 use core\request;
+use App\output;
 function __autoload($classname)
 {
     include_once __DIR__ . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $classname) . '.php';
@@ -16,13 +17,23 @@ session_start();
 $routes = explode('/', $_SERVER['REQUEST_URI']);
 
 if ($_POST) {
+
+    if (isset($_POST['delete'])){
+        $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
+    }
    // var_dump($_POST);
     $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
+    echo "<pre>";
+//    var_dump($request);
     $controller = new Registr($request);
     $controller->addUser();
-
  //   header("Location: /");
 }
+
+if (isset($_POST['delete'])){
+    $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
+}
+
 
 $controllerName = "auth";
 $actionName = "index";

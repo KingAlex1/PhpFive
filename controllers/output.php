@@ -6,17 +6,17 @@ use core\request;
 use core\DBConnector;
 use core\DBDriver;
 use models\registration;
-use core\validation;
 
-
-class UserList extends MainController
+class Output
 {
-    public function index()
+
+    public function output()
     {
-
         $out = new Registration(new DBDriver(DBConnector::getConnect()), new Validation(), 'users');
-        $users = $out->select();
+        $out->select();
+        echo "<pre>";
 
-        $this->view->render('list', $users);
+
     }
+
 }

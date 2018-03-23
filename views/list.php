@@ -30,7 +30,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -61,15 +62,27 @@
             <th>Фотография</th>
             <th>Действия</th>
         </tr>
+        <?php foreach ($data
+
+        as $key => $item) : ?>
         <tr>
-            <td>vasya99</td>
-            <td>Вася</td>
-            <td>14</td>
-            <td>Эксперт в спорах в интернете</td>
-            <td><img src="http://lorempixel.com/people/200/200/" alt=""></td>
+            <td><?= $item[1] ?></td>
+            <td><?= $item[3] ?></td>
+            <td><?= $item[4] ?></td>
+            <td><?= $item[5] ?></td>
+            <td><img class="image" src="../photos/<?= $item[6] ?> " alt=" <?= $item[6]
+                ?>" width="100" height="100"> <img></td>
             <td>
-                <a href="">Удалить пользователя</a>
+                <form name="ddd" action="../index.php" method="post">
+                    <input type="hidden" name="id" value="<?= $item[0] ?>">
+                    <input id="<?= $item[0] ?>"
+                           name="delete"
+                           type="submit"
+                           value="удалить пользователя">
+                </form>
+
             </td>
+            <?php endforeach; ?>
         </tr>
     </table>
 
