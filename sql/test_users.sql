@@ -1,0 +1,4 @@
+INSERT INTO test.users (id, login, password, name, age, description, photo) VALUES (87, '1234', '1e689a339ea67fbdc79fbef1e4893c0019672782d7eeb9bebd580dea19a1acbf', '4', 123, '123', 'gufi.jpg');
+INSERT INTO test.users (id, login, password, name, age, description, photo) VALUES (89, '555', '2e8381ac96b3304c4e8e3c431d7b25eebc879cde06394d161f1c9ac2af76f16e', '555', 555, '555', 'don.jpg');
+INSERT INTO test.users (id, login, password, name, age, description, photo) VALUES (90, '666', 'bcd4f1d2706251e2ee9a9d03689d3cdd3632459dde8568b5f06fda36f057b26b', '666', 666, '666', 'micky.png');
+INSERT INTO test.users (id, login, password, name, age, description, photo) VALUES (91, '777', 'd61909c529fc8072c46c6a59fcad91d8229597665ffe65ab88a069c5617386ff', '777', 777, '777', 'mini.jpg');
