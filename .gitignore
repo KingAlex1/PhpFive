@@ -1,4 +1,4 @@
-core/config.php
+core/Config.php
 .idea
 debug
 vendor

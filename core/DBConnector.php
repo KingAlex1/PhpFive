@@ -16,7 +16,8 @@ class DBConnector
 
     private static function getPDO()
     {
-        $dsn = sprintf('%s:host=%s;dbname=%s', 'mysql', 'localhost', 'test');
-        return new \PDO($dsn, 'root', 'mars100');
+        $dsn = sprintf('%s:host=%s;dbname=%s', 'mysql', Config::HOST,
+            Config::BDNAME);
+        return new \PDO($dsn, Config::LOGIN, Config::PASS);
     }
 }

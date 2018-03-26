@@ -25,7 +25,9 @@ class Registr
 
     public function addUser()
     {
-        $addOne = new Registration(new DBDriver(DBConnector::getConnect()), new Validation(), 'users');
+        $addOne = new Registration(
+            new DBDriver(DBConnector::getConnect()),
+            new Validation(), 'users');
         $user = $addOne->add([
             'login' => $this->request->post('login'),
             'password' => $this->getHash($this->request->post('password')),
@@ -64,19 +66,13 @@ class Registr
             echo "Не верный Логин!";
             return false;
         }
-        $mathced = $this->getHash($_POST['pass']) === $user['password'];
+        $mathced = $this->getHash($this->request->post('pass')) === $user['password'];
         if (!$mathced) {
             echo " Не верные данные !";
         }
-
 //      Авторизация
         $serviceAuth = new Auth();
         $serviceAuth->login($user['id']);
-
         header('location:/userlist');
-        exit();
-
-
-
     }
 }
