@@ -2,7 +2,6 @@
 
 namespace core;
 
-
 class Validation
 {
     public function checkData(Array $obj)

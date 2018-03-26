@@ -62,9 +62,7 @@
             <th>Фотография</th>
             <th>Действия</th>
         </tr>
-        <?php foreach ($data
-
-        as $key => $item) : ?>
+        <?php foreach ($data as $key => $item) : ?>
         <tr>
             <td><?= $item[1] ?></td>
             <td><?= $item[3] ?></td>
@@ -75,6 +73,7 @@
             <td>
                 <form name="ddd" action="../index.php" method="post">
                     <input type="hidden" name="id" value="<?= $item[0] ?>">
+                    <input type="hidden" name="pic" value="<?= $item[6] ?>">
                     <input id="<?= $item[0] ?>"
                            name="delete"
                            type="submit"

@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+session_start();
 
 require_once "controllers/registr.php";
 require_once "core/MainController.php";
@@ -6,34 +8,37 @@ require_once "core/View.php";
 
 use App\Registr;
 use core\request;
-use App\output;
+
 function __autoload($classname)
 {
     include_once __DIR__ . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $classname) . '.php';
 }
 
-session_start();
+
 
 $routes = explode('/', $_SERVER['REQUEST_URI']);
 
 if ($_POST) {
 
-    if (isset($_POST['delete'])){
-        $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
-    }
-   // var_dump($_POST);
     $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
     echo "<pre>";
-//    var_dump($request);
+
+    if (isset($_POST['delete'])){
+
+        $controller = new Registr($request);
+        $controller->deleteUser();
+    }
+
+    if (isset($_POST['log'])&& isset($_POST['pass'])){
+
+        $controller = new Registr($request);
+        $controller->signIn();
+    }
+
     $controller = new Registr($request);
     $controller->addUser();
- //   header("Location: /");
-}
 
-if (isset($_POST['delete'])){
-    $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
 }
-
 
 $controllerName = "auth";
 $actionName = "index";
@@ -45,7 +50,6 @@ if (!empty($routes[1])) {
 if (!empty($routes[2])) {
     $actionName = $routes[2];
 }
-//print_r($_POST);
 
 $fileName = "controllers/" . strtolower($controllerName) . ".php";
 

@@ -2,8 +2,7 @@
 
 namespace App;
 
-
-class Reg extends MainController
+class reg extends MainController
 {
     public function index()
     {

@@ -43,7 +43,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Авторизация</a></li>
                 <li><a href="reg">Регистрация</a></li>
-                <li><a href="userlist">Список пользователей"</a></li>
+                <li><a href="userlist">Список пользователей</a></li>
                 <li><a href="filelist">Список файлов</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -57,14 +57,14 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Логин</label>
                 <div class="col-sm-10">
-                    <input type="text" name="login" class="form-control" id="inputEmail3"
+                    <input type="text" name="log" class="form-control" id="inputEmail3"
                            placeholder="Логин">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
                 <div class="col-sm-10">
-                    <input type="password" name="password" class="form-control"
+                    <input type="password" name="pass" class="form-control"
                            id="inputPassword3"
                            placeholder="Пароль">
                 </div>

@@ -11,7 +11,6 @@ class DBConnector
         if (self::$instance === null) {
             self::$instance = self::getPDO();
         }
-
         return self::$instance;
     }
 

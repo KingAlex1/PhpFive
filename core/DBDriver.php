@@ -26,15 +26,21 @@ class DBDriver
     {
         $columns = sprintf('(%s)', implode(', ', array_keys($params)));
         $masks = sprintf('(:%s)', implode(', :', array_keys($params)));
-        //print_r($params);
-
         $sql = sprintf('INSERT INTO %s %s VALUES %s', $table, $columns, $masks);
-
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);
 
         return $this->pdo->lastInsertId();
     }
 
+    public function delete($table, $where, $params)
+    {
+        $sql = "DELETE FROM $table WHERE $where ";
+        $query = $this->pdo->prepare($sql);
+        $query->execute($params);
+
+        return true;
+    }
 
 }
+

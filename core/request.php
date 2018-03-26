@@ -5,14 +5,12 @@ namespace core;
 
 class Request
 {
-
     private $get;
     private $post;
     private $server;
     private $cookie;
     private $file;
     private $session;
-
 
     public function __construct($get, $post, $server, $cookie, $file, $session)
     {
@@ -24,8 +22,6 @@ class Request
         $this->session = $session;
     }
 
-
-
     public function get($key = null)
     {
         $this->getArr($this->get, $key);
@@ -33,9 +29,7 @@ class Request
 
     public function post($key = null)
     {
-
         return $this->getArr($this->post, $key);
-
     }
 
     private function getArr(array $arr, $key = null)
@@ -43,7 +37,6 @@ class Request
         if (!$key) {
             return $arr;
         }
-
         if (isset($arr[$key])) {
             return $arr[$key];
         }
